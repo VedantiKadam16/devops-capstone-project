@@ -8,3 +8,19 @@ Content-Type: text/html; charset=utf-8
 Access-Control-Allow-Origin: *
 
 (empty response body)
+
+Verification command:
+curl -i http://127.0.0.1:8080/accounts/2
+
+Verification output:
+HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/2.1.2 Python/3.12.10
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Referrer-Policy: strict-origin-when-cross-origin
+
+{"error":"Not Found","message":"404 Not Found: Account with id '2' was not found","status":404}
