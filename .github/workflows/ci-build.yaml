@@ -36,3 +36,8 @@ jobs:
         run: make lint
       - name: Run unit tests
         run: nosetests -v --with-coverage --cover-package=service
+      - name: Build and inspect Docker image
+        run: |
+          docker build --tag accounts:1.0 .
+          docker images accounts:1.0 --format \
+            "Name={{.Repository}} Tag={{.Tag}} Image ID={{.ID}} Created Time={{.CreatedAt}} Size={{.Size}}"
