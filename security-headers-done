@@ -1,9 +1,27 @@
+Command:
 nosetests -v --with-coverage --cover-package=service
 
-Ran 24 tests in 0.XXXs
+Accounts service test output:
+  It should call the db-create command ... ok
+  It should Create an account and add it to the database ... ok
+  It should Create an Account and assert that it exists ... ok
+  It should Delete an account from the database ... ok
+  It should Deserialize an account ... ok
+  It should Find an Account by name ... ok
+  It should List all Accounts in the database ... ok
+  It should Read an account ... ok
+  It should Serialize an account ... ok
+  It should Update an account ... ok
+  It should not Create an Account when sending the wrong data ... ok
+  It should Create a new Account ... ok
+  It should be healthy ... ok
+  It should get 200_OK from the Home Page ... ok
+  It should not Create an Account when sending the wrong media type ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.636s
 
 OK
 
-Accounts service tests: all passing
-CORS policy: enabled for the Flask application
-Security headers: enabled by Flask-Talisman
+CI run: GitHub Actions CI Build, run 35506093525
+Application configuration: Flask-CORS enabled; Flask-Talisman security headers enabled.
