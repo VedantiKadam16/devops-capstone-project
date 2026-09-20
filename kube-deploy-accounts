@@ -1,0 +1,8 @@
+Deployment:
+  kubectl get deployment accounts
+Pods:
+  kubectl get pods -l app=accounts
+Replica Sets:
+  kubectl get replicasets -l app=accounts
+Service:
+  kubectl get service accounts

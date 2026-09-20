@@ -1,0 +1,10 @@
+Command:
+curl -i -X PUT http://127.0.0.1:8080/accounts/1 -H "Content-Type: application/json" --data-binary "@account-update-payload.json"
+
+Output:
+HTTP/1.1 200 OK
+Server: Werkzeug/2.1.2 Python/3.12.10
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+
+{"address":"2 Main Street","date_joined":"2026-09-20","email":"jane.smith@example.com","id":1,"name":"Jane Smith","phone_number":"555-0101"}

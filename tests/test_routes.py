@@ -123,4 +123,56 @@ class TestAccountService(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
-    # ADD YOUR TEST CASES HERE ...
+    def test_list_accounts(self):
+        """It should List all Accounts in the service"""
+        self._create_accounts(2)
+        response = self.client.get(BASE_URL)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.get_json()), 2)
+
+    def test_read_account(self):
+        """It should Read an account from the service"""
+        account = self._create_accounts(1)[0]
+        response = self.client.get(f"{BASE_URL}/{account.id}")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.get_json()["id"], account.id)
+
+    def test_read_missing_account(self):
+        """It should return 404 for a missing account"""
+        response = self.client.get(f"{BASE_URL}/99999")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_update_account(self):
+        """It should Update an account in the service"""
+        account = self._create_accounts(1)[0]
+        payload = account.serialize()
+        payload["email"] = "updated@example.com"
+        response = self.client.put(f"{BASE_URL}/{account.id}", json=payload)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.get_json()["email"], "updated@example.com")
+
+    def test_delete_account(self):
+        """It should Delete an account from the service"""
+        account = self._create_accounts(1)[0]
+        response = self.client.delete(f"{BASE_URL}/{account.id}")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertIsNone(Account.find(account.id))
+
+    def test_delete_missing_account(self):
+        """It should return 404 when deleting a missing account"""
+        response = self.client.delete(f"{BASE_URL}/99999")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_cors_header(self):
+        """It should return a CORS header"""
+        origin = "https://example.com"
+        response = self.client.get("/", headers={"Origin": origin})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.headers.get("Access-Control-Allow-Origin"), origin)
+
+    def test_security_headers(self):
+        """It should return security headers"""
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.headers.get("X-Frame-Options"), "SAMEORIGIN")
+        self.assertEqual(response.headers.get("X-Content-Type-Options"), "nosniff")

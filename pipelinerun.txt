@@ -1,0 +1,9 @@
+Tekton PipelineRun: cd-pipeline
+Status: Succeeded
+Tasks:
+  init: Succeeded
+  clone: Succeeded
+  lint: Succeeded
+  test: Succeeded
+  build: Succeeded
+  deploy: Succeeded

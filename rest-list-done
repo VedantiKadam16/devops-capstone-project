@@ -1,0 +1,10 @@
+Command:
+curl -i http://127.0.0.1:8080/accounts
+
+Output:
+HTTP/1.1 200 OK
+Server: Werkzeug/2.1.2 Python/3.12.10
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+
+[{"address":"1 Main Street","date_joined":"2026-09-20","email":"jane@example.com","id":1,"name":"Jane Doe","phone_number":"555-0100"},{"address":"2 Main Street","date_joined":"2026-09-20","email":"john@example.com","id":2,"name":"John Doe","phone_number":"555-0101"}]

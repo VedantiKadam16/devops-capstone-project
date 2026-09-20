@@ -1,0 +1,20 @@
+GitHub Actions workflow: CI Build
+Repository: VedantiKadam16/devops-capstone-project
+Pull request: #17
+Run ID: 35506016228
+Run URL: https://github.com/VedantiKadam16/devops-capstone-project/actions/runs/35506016228
+Status: success
+Job: build
+
+Workflow steps:
+  ✓ Set up job
+  ✓ Initialize containers
+  ✓ Check out code
+  ✓ Set up Python
+  ✓ Install dependencies
+  ✓ Lint code
+  ✓ Run unit tests
+  ✓ Post Set up Python
+  ✓ Post Check out code
+  ✓ Stop containers
+  ✓ Complete job
