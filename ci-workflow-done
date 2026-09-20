@@ -1,0 +1,9 @@
+CI workflow: CI Build
+Status: success
+Jobs: build
+Steps completed:
+  - Check out code
+  - Set up Python
+  - Install dependencies
+  - Lint code
+  - Run unit tests

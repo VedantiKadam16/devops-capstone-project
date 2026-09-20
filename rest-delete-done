@@ -1,0 +1,10 @@
+Command:
+curl -i -X DELETE http://127.0.0.1:8080/accounts/2
+
+Output:
+HTTP/1.1 204 NO CONTENT
+Server: Werkzeug/2.1.2 Python/3.12.10
+Content-Type: text/html; charset=utf-8
+Access-Control-Allow-Origin: *
+
+(empty response body)

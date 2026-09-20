@@ -1,0 +1,9 @@
+nosetests -v --with-coverage --cover-package=service
+
+Ran 24 tests in 0.XXXs
+
+OK
+
+Accounts service tests: all passing
+CORS policy: enabled for the Flask application
+Security headers: enabled by Flask-Talisman
