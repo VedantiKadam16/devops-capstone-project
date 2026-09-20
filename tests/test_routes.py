@@ -165,9 +165,10 @@ class TestAccountService(TestCase):
 
     def test_cors_header(self):
         """It should return a CORS header"""
-        response = self.client.get("/", headers={"Origin": "https://example.com"})
+        origin = "https://example.com"
+        response = self.client.get("/", headers={"Origin": origin})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.headers.get("Access-Control-Allow-Origin"), "*")
+        self.assertEqual(response.headers.get("Access-Control-Allow-Origin"), origin)
 
     def test_security_headers(self):
         """It should return security headers"""
